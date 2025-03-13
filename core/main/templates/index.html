@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 900px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .car-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .car-item {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            width: 200px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .car-item img {
+            width: 100%;
+            height: auto;
+        }
+        .car-item h3 {
+            margin: 10px 0;
+        }
+        .car-item p {
+            color: #666;
+        }
+        .auth-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .auth-links a {
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .login-btn {
+            background-color: #007bff;
+        }
+        .register-btn {
+            background-color: #28a745;
+        }
+        .logout-btn {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Welcome to the Car Showcase!</h2>
+            <p>Explore our collection of cars below. You can login or register to access more features.</p>
+        </div>
+
+        <div class="car-list">
+            {% for car in car_list %}
+                <div class="car-item">
+                    <img src="{{ car.image.url }}" alt="{{ car.name }}">
+                    <h3>{{ car.name }}</h3>
+                    <p>${{ car.price }}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="auth-links">
+            <a href="{% url 'login' %}" class="login-btn">Login</a>
+            <a href="{% url 'register' %}" class="register-btn">Register</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
