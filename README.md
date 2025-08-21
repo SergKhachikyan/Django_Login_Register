@@ -1,7 +1,7 @@
 ## Django Login and Registration System
 ## This is a simple Django application that implements user authentication with login, registration, and admin panel features.
 
-<img width="1536" height="1024" alt="ChatGPT Image 20 июл  2025 г , 21_48_10" src="https://github.com/user-attachments/assets/d8c3be83-ba7c-4e30-b37b-ad0d09fa698c" />
+<img width="1024" height="1024" alt="ChatGPT Image 21 авг  2025 г , 19_20_03" src="https://github.com/user-attachments/assets/63d479be-8cbe-4ff8-a1cb-e525443df926" />
 
 
 ### 1. Clone the Repository
